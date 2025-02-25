@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const NewsLetter = () => {
-  return (
-    <div>NewsLetter</div>
-  )
-}
+	return (
+		<>
+			<div>NewsLetter</div>
+		</>
+	);
+};
 
-export default NewsLetter
+export default NewsLetter;

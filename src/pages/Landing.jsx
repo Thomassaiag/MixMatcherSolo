@@ -6,7 +6,6 @@ const Landing = () => {
   return (
     <>
     <div>Landing</div>
-    <NavBar/>
     <CocktailList/>
     </>
   )
