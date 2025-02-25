@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Wrapper from '../assets/wrappers/navbar'
+import Wrapper from '../assets/wrappers/Navbar'
 
 export const NavBar = () => {
 	return (
