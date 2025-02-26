@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/CocktailCard";
 
-const Cocktail = ({ id, info, name, image, glass }) => {
+const CocktailCard = ({ id, info, name, image, glass }) => {
 	return (
 		<Wrapper>
 			<div className="img-container">
@@ -20,4 +20,4 @@ const Cocktail = ({ id, info, name, image, glass }) => {
 	);
 };
 
-export default Cocktail;
+export default CocktailCard;

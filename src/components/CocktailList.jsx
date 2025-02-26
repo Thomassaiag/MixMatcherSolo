@@ -1,12 +1,15 @@
 import React from "react";
-import Cocktail from "./Cocktail";
+import CocktailCard from "./CocktailCard";
 import Wrapper from "../../../final/src/assets/wrappers/CocktailList";
 
 const CocktailList = ({ drinks }) => {
-
-    if(!drinks){
-        return <h4 style={{textAlign: 'center'}}>No matching cocktail found...</h4>
-    }
+	if (!drinks) {
+		return (
+			<h4 style={{ textAlign: "center" }}>
+				No matching cocktail found...
+			</h4>
+		);
+	}
 
 	const formatedDrinks = drinks.map((drink) => {
 		const { idDrink, strAlcoholic, strDrink, strDrinkThumb, strGlass } =
@@ -26,7 +29,7 @@ const CocktailList = ({ drinks }) => {
 		<Wrapper>
 			{formatedDrinks.map((drink) => {
 				drink;
-				return <Cocktail key={drink.id} {...drink} />;
+				return <CocktailCard key={drink.id} {...drink} />;
 			})}
 		</Wrapper>
 	);
