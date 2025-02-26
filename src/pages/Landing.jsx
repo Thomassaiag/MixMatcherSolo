@@ -8,19 +8,21 @@ import { useLoaderData } from "react-router-dom";
 
 const searchCocktailUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-export const loader = async () => {
-    const searchTerm = "margarita";
-	const response = await axios.get(`${searchCocktailUrl}${searchTerm}`);
-	return response;
+export const loader = async ({request}) => {
+
+    const url= new URL (request.url)
+    const searchTerm = url.searchParams.get("search") || "a";
+	const {data} = await axios.get(`${searchCocktailUrl}${searchTerm}`);
+	return {data, searchTerm};
 };
 
 const Landing = () => {
-	const {data} = useLoaderData();
+	const {data,searchTerm} = useLoaderData();
     const {drinks}=data
     
 	return (
 		<>
-            <SearchForm />
+            <SearchForm searchTerm={searchTerm}/>
 			<CocktailList drinks={drinks} />
 		</>
 	);

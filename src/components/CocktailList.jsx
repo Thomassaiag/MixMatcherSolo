@@ -23,8 +23,6 @@ const CocktailList = ({ drinks }) => {
 		};
 	});
 
-	console.log(formatedDrinks);
-
 	return (
 		<Wrapper>
 			{formatedDrinks.map((drink) => {
