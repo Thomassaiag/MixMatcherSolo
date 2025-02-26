@@ -1,20 +1,31 @@
 import React from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+
+import { Link, useLoaderData, redirect, Navigate } from "react-router-dom";
 import axios from "axios";
 import Wrapper from "../assets/wrappers/CocktailPage";
+import { toast } from "react-toastify";
 const singleCocktailUrl =
 	"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
 export const loader = async ({ params }) => {
 	const { id } = params;
-	const { data } = await axios.get(`${singleCocktailUrl}${id}`);
-	console.log(data);
+    try {
+        const { data } = await axios.get(`${singleCocktailUrl}${id}`);
+        console.log(data);
+        return data.drinks;
+    } catch (error) {
+        console.log(error.response.data.message)
+        return redirect("/")
+    }
 
-	return data.drinks;
 };
 
 const Cocktail = () => {
 	const data = useLoaderData();
+    if(!data){
+        return <Navigate to="/"/>
+    }
+    const singleDrink = data[0];
 	const {
 		idDrink: id,
 		strAlcoholic: info,
@@ -23,7 +34,14 @@ const Cocktail = () => {
 		strGlass: glass,
 		strCategory: category,
 		strInstructions: instructions,
-	} = data[0];
+	} = singleDrink;
+
+    const validIngredients = Object.keys(singleDrink).filter(
+		(key) => key.startsWith("strIngredient") && singleDrink[key]!=null
+	).map((item)=>singleDrink[item]);
+    console.log(validIngredients);
+    
+
 
 	return (
 		<Wrapper>
@@ -54,7 +72,7 @@ const Cocktail = () => {
 					</p>
 					<p>
 						<span className="drink-data">Ingredients: </span>
-						
+						{validIngredients.join(', ')}
 					</p>
 					<p>
 						<span className="drink-data">Instructions: </span>
