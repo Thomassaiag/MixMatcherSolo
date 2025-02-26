@@ -414,7 +414,7 @@ const Error = () => {
         <div>
           <img src={img} alt='not found' />
           <h3>Ohh! </h3>
-          <p>We can't seem to find the page you're looking for</p>
+git
           <Link to='/'>back home</Link>
         </div>
       </Wrapper>
