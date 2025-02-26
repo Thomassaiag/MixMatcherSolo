@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomeLayout, Landing, About, Newsletter, Error } from "./pages";
 
 import { loader as searchCocktailLit } from "./pages/Landing";
+import SingleErrorPage from "./pages/SingleErrorPage";
 
 const router = createBrowserRouter([
 	{
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
 		element: <HomeLayout />,
 		errorElement: <Error />,
 		children: [
-			{ element: <Landing />, index: true, loader: searchCocktailLit },
+			{ element: <Landing />, index: true, loader: searchCocktailLit, errorElement:<SingleErrorPage/> },
 			{ path: "about", element: <About /> },
 			{ path: "newsletter", element: <Newsletter /> },
 		],
