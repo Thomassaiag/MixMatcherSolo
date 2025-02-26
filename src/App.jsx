@@ -1,11 +1,19 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomeLayout, Landing, About, Newsletter, Error } from "./pages";
+import {
+	HomeLayout,
+	Landing,
+	About,
+	Newsletter,
+	Error,
+	Cocktail,
+	SingleErrorPage,
+} from "./pages";
 
-import { loader as searchCocktailLit } from "./pages/Landing";
+import { loader as cocktailListLoader } from "./pages/Landing";
+import {loader as singleCocktailLoader} from './pages/Cocktail'
 import { action as newsLetterAction } from "./pages/Newsletter";
-import SingleErrorPage from "./pages/SingleErrorPage";
-import { ToastContainer } from "react-toastify";
+
 
 const router = createBrowserRouter([
 	{
@@ -16,7 +24,7 @@ const router = createBrowserRouter([
 			{
 				element: <Landing />,
 				index: true,
-				loader: searchCocktailLit,
+				loader: cocktailListLoader,
 				errorElement: <SingleErrorPage />,
 			},
 			{ path: "about", element: <About /> },
@@ -24,6 +32,11 @@ const router = createBrowserRouter([
 				path: "newsletter",
 				element: <Newsletter />,
 				action: newsLetterAction,
+			},
+			{
+				path: "cocktail/:id",
+				element: <Cocktail />,
+                loader: singleCocktailLoader
 			},
 		],
 	},
