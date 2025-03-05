@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../../final/src/assets/wrappers/AboutPage";
+import Wrapper from "../assets/wrappers/AboutPage";
 
 const About = () => {
 	return (
