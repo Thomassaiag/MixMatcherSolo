@@ -1,6 +1,6 @@
 import React from "react";
 import CocktailCard from "./CocktailCard";
-import Wrapper from "../../../final/src/assets/wrappers/CocktailList";
+import Wrapper from "../assets/wrappers/CocktailList";
 
 const CocktailList = ({ drinks }) => {
 	if (!drinks) {
