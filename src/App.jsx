@@ -13,16 +13,16 @@ import {
 } from "./pages";
 
 import { loader as cocktailListLoader } from "./pages/Landing";
-import {loader as singleCocktailLoader} from './pages/Cocktail'
+import { loader as singleCocktailLoader } from "./pages/Cocktail";
 import { action as newsLetterAction } from "./pages/Newsletter";
 
-const queryClient=new QueryClient({
-    defaultOptions:{
-        queries:{
-            staleTime: 1000*60*5
-        }
-    }
-})
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			staleTime: 1000 * 60 * 5,
+		},
+	},
+});
 
 const router = createBrowserRouter([
 	{
@@ -52,13 +52,12 @@ const router = createBrowserRouter([
 	},
 ]);
 
-
 const App = () => {
 	return (
 		<>
-        <QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
-        </QueryClientProvider>
+			<QueryClientProvider client={queryClient}>
+				<RouterProvider router={router} />
+			</QueryClientProvider>
 		</>
 	);
 };
