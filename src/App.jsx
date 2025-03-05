@@ -14,7 +14,7 @@ import {
 
 import { loader as cocktailListLoader } from "./pages/Landing";
 import { loader as singleCocktailLoader } from "./pages/Cocktail";
-import { action as newsLetterAction } from "./pages/Newsletter";
+import { action as newsLetterAction } from "./pages/NewsLetter";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
